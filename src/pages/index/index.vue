@@ -14,8 +14,13 @@
       </view>
     </view>
     
-    <view class="sector-list">
-      <view v-for="(item, index) in sectorList" :key="index" class="sector-item">
+    <view class="sector-cards">
+      <view 
+        v-for="(item, index) in sectorList" 
+        :key="index" 
+        class="sector-card"
+        @click="navigateToDetail(item)"
+      >
         <view class="sector-header">
           <text class="sector-name">{{ item.name }}</text>
           <text class="sector-code">{{ item.code }}</text>
@@ -27,7 +32,7 @@
             <text class="rating-label">长期趋势: {{ item.longTermScore }}</text>
           </view>
           
-          <view class="combined-progress-container" @click="navigateToDetail(item)">
+          <view class="combined-progress-container">
             <!-- 长期趋势进度条（边框） -->
             <view class="long-term-progress" :style="{ 
               borderColor: getProgressColor(item.longTermScore),
@@ -253,16 +258,42 @@ onMounted(() => {
   color: #007AFF;
 }
 
-.sector-list {
+.sector-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
-.sector-item {
+.sector-card {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.sector-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sector-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.03);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sector-card:active::after {
+  opacity: 1;
 }
 
 .sector-header {
@@ -300,7 +331,6 @@ onMounted(() => {
   height: 30px;
   position: relative;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
 .long-term-progress {
