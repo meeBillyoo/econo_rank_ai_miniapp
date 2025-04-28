@@ -1,0 +1,72 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "经济学家排行榜 - 综合面板"
+			}
+		},
+		{
+			"path": "pages/index/sector-detail",
+			"style": {
+				"navigationBarTitleText": "板块详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/expert-rating/expert-rating",
+			"style": {
+				"navigationBarTitleText": "专家评分"
+			}
+		},
+		{
+			"path": "pages/expert-rating/expert-detail",
+			"style": {
+				"navigationBarTitleText": "专家详情",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/comment-rating/comment-rating",
+			"style": {
+				"navigationBarTitleText": "评论评分"
+			}
+		},
+		{
+			"path": "pages/team-intro/team-intro",
+			"style": {
+				"navigationBarTitleText": "团队介绍"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "经济学家排行榜",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "📊 面板"
+			},
+			{
+				"pagePath": "pages/expert-rating/expert-rating",
+				"text": "⭐ 专家"
+			},
+			{
+				"pagePath": "pages/comment-rating/comment-rating",
+				"text": "💬 观点"
+			},
+			{
+				"pagePath": "pages/team-intro/team-intro",
+				"text": "👥 团队"
+			}
+		]
+	}
+}
